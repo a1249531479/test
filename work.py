@@ -45,7 +45,11 @@ num_classes = len(set(labels))
 
 
 # 定义Placeholder，存放输入和标签
-datas_placeholder = tf.placeholder(tf.float32, [None, 32, 32, 3])
+datas_placeholder = tf.compat.v1.placeholder(tf.float32, [None, 32, 32, 3])
+labels_placeholder = tf.compat.v1.placeholder(tf.int32, [None])
+
+# 存放DropOut参数的容器，训练时为0.25，测试时为0
+dropout_placeholder = tf.compat.v1.placeholder(tf.float32,)
 labels_placeholder = tf.placeholder(tf.int32, [None])
 
 # 存放DropOut参数的容器，训练时为0.25，测试时为0
